@@ -9,6 +9,3 @@ import Foundation
 
 let eze = Tamagotchi(health: 10, hunger: 10, happiness: 10, discipline: 10)
 eze.game()
-
-
-print("hello")
