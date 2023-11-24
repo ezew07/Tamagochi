@@ -51,12 +51,12 @@ class Tamagotchi{
     private var age = Int()
     private var tiredness = Int()
     
-    init(health: Double, hunger: Double, happiness: Double, discipline: Double, bowels: Double) {
+    init(health: Double, hunger: Double, happiness: Double, discipline: Double) {
         self.health = health
         self.hunger = hunger
         self.happiness = happiness
         self.discipline = discipline
-        self.bowels = bowels
+        self.bowels = 0
         self.age = 0
         self.tiredness = 0
     }
@@ -77,7 +77,7 @@ class Tamagotchi{
             print("Tamagotchi is not hungry")
         }
         else{
-            let foodType = getStr(prompt: "Would you like to feed Tamagotchi a meal of a snack?").lowercased()
+            let foodType = getStr(prompt: "Would you like to feed Tamagotchi a meal or a snack?").lowercased()
             if foodType == "meal"{
                 print("Current hunger level is \(self.hunger). After feeding a meal, new hunger level is \(self.hunger-5)")
                 self.hunger -= 5
@@ -130,11 +130,13 @@ class Tamagotchi{
                 print("Correct! Tamagotchi is happy")
                 self.happiness += 0.5
                 self.tiredness += 3
+                self.hunger += 2
             }
             else{
                 print("Incorrect... Tamagotchi is sad")
                 self.happiness -= 0.5
                 self.tiredness += 3
+                self.hunger += 2
             }
         }
     }
